@@ -1,15 +1,15 @@
 import React from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../redux/filterSlice';
-import { getFilter } from '../../redux/selectors';
+import { setFilter } from '../../redux/filter/filterSlice';
+import { selectFilter } from '../../redux/selectors';
 
 import { LabelWrapper, Label, Input } from './Filter.styled';
 
 const filterId = nanoid();
 
 const Filter = () => {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const changeFilter = e => {

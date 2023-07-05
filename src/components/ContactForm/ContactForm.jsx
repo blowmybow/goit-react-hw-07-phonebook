@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import notifyOptions from '../../notify/NotifyOptions';
 
-import { addContact } from '../../redux/contactsSlice';
+import { saveContact } from 'redux/contacts/contactsOperations';
 import { getFilteredContacts } from '../../redux/selectors';
 
 import {
@@ -65,7 +65,7 @@ const ContactForm = () => {
     if (isDublicate({ name, number })) {
       return toast.error(`This contact is already in contacts`, notifyOptions);
     }
-    dispatch(addContact({ name, number }));
+    dispatch(saveContact({ name, number }));
   };
   return (
     <Formik
